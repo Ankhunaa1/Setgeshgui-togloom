@@ -2,17 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-
-// Default card symbols for the memory game - powers of 10
-const DEFAULT_CARD_SYMBOLS = [
-  "10⁰", "10¹", "10²", "10³", "10⁴", "10⁵", "10⁶", "10⁷", "10⁸", "10⁹",
-  "10¹⁰", "10¹¹", "10¹²", "10¹³", "10¹⁴", "10¹⁵", "10¹⁶", "10¹⁷", "10¹⁸", "10¹⁹",
-  "10²⁰", "10²¹", "10²²", "10²³", "10²⁴", "10²⁵", "10²⁶", "10²⁷", "10²⁸", "10²⁹",
-  "10³⁰", "10³¹", "10³²", "10³³", "10³⁴", "10³⁵", "10³⁶", "10³⁷", "10³⁸", "10³⁹",
-  "10⁴⁰", "10⁴¹", "10⁴²", "10⁴³", "10⁴⁴", "10⁴⁵", "10⁴⁶", "10⁴⁷", "10⁴⁸", "10⁴⁹",
-  "10⁵⁰", "10⁵¹", "10⁵²", "10⁵³", "10⁵⁴", "10⁵⁵", "10⁵⁶", "10⁵⁷", "10⁵⁸", "10⁵⁹",
-  "10⁶⁰", "10⁶¹", "10⁶²", "10⁶³", "10⁶⁴", "10⁶⁵", "10⁶⁶"
-];
+import { DEFAULT_CARD_SYMBOLS } from "@/lib/gameConfig";
 
 // Number of cards in the game (5x4 = 20 cards)
 const TOTAL_CARDS = 20;

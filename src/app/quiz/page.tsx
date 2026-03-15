@@ -2,58 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-
-// Default quiz questions
-const DEFAULT_QUESTIONS = [
-  {
-    id: 1,
-    question: "What is the capital of France?",
-    answers: ["London", "Paris", "Berlin", "Madrid"],
-    correctAnswer: 1,
-  },
-  {
-    id: 2,
-    question: "What is 2 + 2?",
-    answers: ["3", "4", "5", "6"],
-    correctAnswer: 1,
-  },
-  {
-    id: 3,
-    question: "Which planet is known as the Red Planet?",
-    answers: ["Venus", "Mars", "Jupiter", "Saturn"],
-    correctAnswer: 1,
-  },
-  {
-    id: 4,
-    question: "What is the largest ocean on Earth?",
-    answers: ["Atlantic", "Indian", "Arctic", "Pacific"],
-    correctAnswer: 3,
-  },
-  {
-    id: 5,
-    question: "Who wrote 'Romeo and Juliet'?",
-    answers: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    correctAnswer: 1,
-  },
-  {
-    id: 6,
-    question: "What is the chemical symbol for gold?",
-    answers: ["Go", "Gd", "Au", "Ag"],
-    correctAnswer: 2,
-  },
-  {
-    id: 7,
-    question: "How many continents are there?",
-    answers: ["5", "6", "7", "8"],
-    correctAnswer: 2,
-  },
-  {
-    id: 8,
-    question: "What is the fastest land animal?",
-    answers: ["Lion", "Cheetah", "Leopard", "Tiger"],
-    correctAnswer: 1,
-  },
-];
+import { DEFAULT_QUESTIONS } from "@/lib/gameConfig";
 
 const QUESTIONS_PER_GAME = 8;
 
