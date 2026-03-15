@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 // Default card symbols for the memory game - powers of 10
@@ -37,7 +37,7 @@ interface Score {
   date: string;
 }
 
-export default function Play() {
+function PlayContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const name = searchParams.get("name") || "Player";
@@ -293,5 +293,17 @@ export default function Play() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function Play() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    }>
+      <PlayContent />
+    </Suspense>
   );
 }

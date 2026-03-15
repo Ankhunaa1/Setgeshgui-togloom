@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 // Default quiz questions
@@ -69,7 +69,7 @@ interface UserAnswers {
   [questionIndex: number]: number;
 }
 
-export default function Quiz() {
+function QuizContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const name = searchParams.get("name") || "Player";
@@ -339,5 +339,17 @@ export default function Quiz() {
         ← Exit Quiz
       </button>
     </div>
+  );
+}
+
+export default function Quiz() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    }>
+      <QuizContent />
+    </Suspense>
   );
 }
