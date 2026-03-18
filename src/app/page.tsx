@@ -27,6 +27,10 @@ export default function Home() {
     router.push("/admin");
   };
 
+  const handleNumbers = () => {
+    router.push("/numbers");
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 font-sans relative">
       <button
@@ -41,6 +45,13 @@ export default function Home() {
         className="absolute bottom-6 left-6 rounded-full bg-yellow-500 px-6 py-3 text-lg font-semibold text-white transition-transform hover:scale-105 hover:bg-yellow-600 shadow-lg"
       >
         🏆 Leaderboard
+      </button>
+
+      <button
+        onClick={handleNumbers}
+        className="absolute top-6 right-6 rounded-full bg-indigo-500 px-6 py-3 text-lg font-semibold text-white transition-transform hover:scale-105 hover:bg-indigo-600 shadow-lg"
+      >
+        🔢 Тоо Тоолол
       </button>
 
       <main className="flex flex-col items-center gap-8 rounded-3xl bg-white/90 p-12 shadow-2xl backdrop-blur-sm">
