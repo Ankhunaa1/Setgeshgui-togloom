@@ -9,23 +9,43 @@ interface NumberEntry {
   name: string;
 }
 
-// Generate all powers of 10 from 10^0 to 10^66
+// Generate all powers of 10 - starting from 10^1, then 10^0, then 10^2 to 10^66
 const generateNumbers = (): NumberEntry[] => {
   const numbers: NumberEntry[] = [];
-  for (let i = 0; i <= 66; i++) {
-    // Create superscript representation
-    const superscriptDigits: { [key: string]: string } = {
-      '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
-      '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'
-    };
-    const powerStr = i.toString().split('').map(d => superscriptDigits[d]).join('');
-    
+  
+  // Create superscript helper
+  const superscriptDigits: { [key: string]: string } = {
+    '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+    '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'
+  };
+  
+  const makePower = (i: number): string => {
+    return i.toString().split('').map(d => superscriptDigits[d]).join('');
+  };
+  
+  // First add 10^1
+  numbers.push({
+    power: 1,
+    value: `10${makePower(1)}`,
+    name: ""
+  });
+  
+  // Then add 10^0
+  numbers.push({
+    power: 0,
+    value: `10${makePower(0)}`,
+    name: ""
+  });
+  
+  // Then add 10^2 to 10^66
+  for (let i = 2; i <= 66; i++) {
     numbers.push({
       power: i,
-      value: `10${powerStr}`,
-      name: "" // User will fill in names themselves
+      value: `10${makePower(i)}`,
+      name: ""
     });
   }
+  
   return numbers;
 };
 
